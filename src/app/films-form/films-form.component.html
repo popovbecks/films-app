@@ -1,0 +1,40 @@
+<div class="containerForm">
+  <div class="formArea">
+    <form #filmForm="ngForm" >
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)] = "getService().selectFilm.$key">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" name="title" #title="ngModel" [(ngModel)]="getService().selectFilm.title"  required>
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <input class="form-control" name="year" #year="ngModel" [(ngModel)]="getService().selectFilm.year" >
+      </div>
+      <div class="form-group">
+        <label>Country</label>
+        <input class="form-control" name="country" #country="ngModel" [(ngModel)]="getService().selectFilm.country">
+      </div>
+      <div class="form-group">
+        <label>Genre</label>
+        <input class="form-control" name="genre" #genre="ngModel" [(ngModel)]="getService().selectFilm.genre">
+      </div>
+      <div class="form-group">
+        <label>Actors</label>
+        <input class="form-control" name="actors" #actors="ngModel" [(ngModel)]="getService().selectFilm.actors">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" name="description" #description="ngModel" [(ngModel)]="getService().selectFilm.description"></textarea>
+      </div>
+
+
+      <button class="btn btn-primary" type="button" (click)="onCancel(filmForm)">
+
+        Cancel</button>
+      <button class="btn btn-danger" type="submit" (click)="onSubmit(filmForm)" >
+        Add</button>
+    </form>
+  </div>
+</div>
+
+
