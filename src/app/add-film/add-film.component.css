@@ -1,0 +1,41 @@
+
+.header{
+  background-color: #6fcdff;
+}
+.label{
+  padding: 56px 70px 52px 72px;
+  background-color: #51afe1;
+}
+.label p{
+  color: white;
+  font-size: 30px;
+}
+.col-md-2{padding: 0}
+.col-md-8{
+  padding: 0;
+}
+.adding{
+  padding-top: 56px;
+}
+.adding p{
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+.form-wrap{
+  background-color: white;
+  padding: 10px;
+}
+.form-container{
+  background-color: white;
+}
+button{
+  border-radius: 30px;
+  width: 140px;
+}
+.icon, .link-add{
+  display: inline-block;
+}
+.icon p{
+  font-size: 30px;
+}

@@ -1,13 +1,8 @@
-.main-area{
-  overflow: hidden;
-  background-color: #E4EDF4;
+.wrapper{
+  background-color: #e4edf4;
+  min-height: 100vh;
 }
- .main-area-center{
-  float: left;
+html, body {
   height: 100%;
-   margin-left: 365px;
-}
-.main-area-center{
-  width: 1170px;
-
+  overflow: hidden;
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FilmsService } from "./films.service";
+
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { FilmsService } from "./films.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private filmsService: FilmsService ) { }
- isActiveChange: boolean = this.filmsService.stateOfForm;
+  constructor( ) { }
+
 
 }

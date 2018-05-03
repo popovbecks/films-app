@@ -1,0 +1,138 @@
+<div class="film-list">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <ul *ngFor="let item of items">
+          <li class="item">
+            <div class="form-for-edit" *ngIf="editState && itemToEdit.id == item.id">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10">
+                    <div class="containerForm">
+                      <div class="formArea">
+                        <form (ngSubmit)="updateItem(item)">
+                          <div class="form-group">
+                            <label>Title</label>
+                            <input class="form-control" name="title"  [(ngModel)]="item.title">
+                          </div>
+                          <div class="form-group">
+                            <label>Year</label>
+                            <input class="form-control" name="year"  [(ngModel)]="item.year" >
+                          </div>
+                          <div class="form-group">
+                            <label>Country</label>
+                            <input class="form-control" name="country"  [(ngModel)]="item.country">
+                          </div>
+                          <div class="form-group">
+                            <label>Genre</label>
+                            <input class="form-control" name="genre"  [(ngModel)]="item.genre">
+                          </div>
+                          <div class="form-group">
+                            <label>Actors</label>
+                            <input class="form-control" name="actors"  [(ngModel)]="item.actors">
+                          </div>
+                          <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description"  [(ngModel)]="item.description"></textarea>
+                          </div>
+
+
+                          <button class="btn btn-primary" type="button" (click)="onCancel()">
+
+                            Cancel</button>
+                          <button class="btn btn-danger" type="submit">
+                            Update</button>
+                        </form>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="film-item">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-4">
+                    <div class="image-container">
+                      <img src="../../assets/logo.gif" alt="logo" width="70%">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-wrapper">
+                      <div class="text-container">
+                        <div class="title"><h3>{{item.title}}</h3></div>
+                        <div class="description">
+                          <p>{{item.description}}</p>
+                        </div>
+                        <div class="two-colums">
+                          <table cellspacing="5">
+                            <td>
+                              <tr>COUNTRY</tr>
+                              <tr>YEAR</tr>
+                              <tr>GENRE</tr>
+                              <tr>ACTORS</tr>
+                            </td>
+                            <td>
+                              <tr>{{item.country}}</tr>
+                              <tr>{{item.year}}</tr>
+                              <tr>{{item.genre}}</tr>
+                              <tr>{{item.actors}}</tr>
+                            </td>
+                          </table>
+                        </div>
+                        <div class="button-group">
+                          <div class="buttons">
+                            <button type="button" class="btn btn-danger" (click)="deleteItem($event, item)">Delete</button>
+                            <button type="button" class="btn btn-primary" (click)="editItem($event, item)">Edit</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="comments-block">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10">
+                    <div class="comments-count"><p (click)="changeCommentState(item)">Comments: {{item.comments.length}}</p></div>
+                    <div class="arrows"><p *ngIf="commentsState"><i class="fas fa-sort-down"></i></p><p *ngIf="!commentsState"><i class="fas fa-sort-up"></i></p></div>
+
+                    <div class="comments-togle" *ngIf="commentsState && itemToShow.id == item.id">
+                      <div class="comments">
+                        <ul class="list-group list-group-flush" *ngFor="let com of item.comments" >
+                          <li class="list-group-item">{{com.message}}</li>
+                        </ul>
+                      </div>
+                      <div class="comments-form">
+                        <form (ngSubmit)="onSubmitCom(item)">
+                        <div class="form-group">
+                          <input class="form-control" placeholder="Add your comment"  [(ngModel)]="comment.message" name="message" >
+                        </div>
+                          <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                      </div>
+                    </div>
+
+                </div>
+                  <div class="col-md-1"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="col md-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
